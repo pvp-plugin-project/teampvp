@@ -63,7 +63,7 @@ class Main extends PluginBase implements Listener
           if (($args[0]) === 'join') 
           {
             $rand = mt_rand(1,2);
-            if ($rand === "1") 
+            if ($rand === 1) 
             {
               $this->config2->set($name);
               $sender->sendMessage("§l§e[TeamPVP]赤チームになりました!");
