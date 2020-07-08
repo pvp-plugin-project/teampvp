@@ -57,7 +57,8 @@ class Main extends PluginBase implements Listener
 
         $name = $sender->getName();
 
-        switch($label){
+        switch($label)
+        {
 
           case 'teampvp':
           if (($args[0]) === 'join') 
@@ -67,19 +68,18 @@ class Main extends PluginBase implements Listener
             {
               $this->config2->set($name);
               $sender->sendMessage("§l§e[TeamPVP]赤チームになりました!");
+              return true;
             }else{
               $this->config3->set($name);
               $sender->sendMessage("§l§e[TeamPVP]青チームになりました!");
+              return true;
             }
           }
-          
-           break;                    
-                
-        }
-
-        return true;     
+              break;   
+        }  
+          return true;
+      
     }
-
       
       public function onquit(PlayerQuitEvent $event)
       {
