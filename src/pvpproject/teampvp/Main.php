@@ -12,7 +12,6 @@ use pocketmine\utils\Config;
 use pocketmine\level\Level;
 use pocketmine\level\Position;
 use pocketmine\math\Vector3;
-use Deceitya\MiningLevel\MiningLevelAPI;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\form\Form;
@@ -29,6 +28,8 @@ class Main extends PluginBase implements Listener
 {
 
   private $config;
+  private $config2;
+  private $config3;
 
     public function onEnable()
     {
