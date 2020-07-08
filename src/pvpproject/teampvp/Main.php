@@ -5,6 +5,7 @@ use pocketmine\plugin\PluginBase;
 use pocketmine\Player;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerJoinEvent;
+use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\Server;
 use pocketmine\block\Block;
 use pocketmine\event\block\{BlockBreakEvent, BlockPlaceEvent};
@@ -45,9 +46,58 @@ class Main extends PluginBase implements Listener
 
 
     }
+    
+    public function onCommand(CommandSender $sender, Command $command, string $label, array $args) : bool
+    {
 
+        if(!$sender instanceof Player){
+          $sender->sendMessage("§cゲーム内で実行してください");
+          return true;
+        }
+
+        $name = $sender->getName();
+
+        switch($label){
+
+          case 'teampvp':
+          if (($args[0]) === 'join') 
+          {
+            $rand = mt_rand(1,2);
+            if ($rand === '1') 
+            {
+              $this->config2->set($name);
+              $sender->sendMessage("§l§e[TeamPVP]赤チームになりました!");
+            }else{
+              $this->config3->set($name);
+              $sender->sendMessage("§l§e[TeamPVP]青チームになりました!");
+            }
+          }
+          
+           break;                    
+                
+        }
+
+        return true;     
+    }
 
       
+      public function onquit(PlayerQuitEvent $event)
+      {
+      $player = $event->getPlayer();
+      $name   = $event->getPlayer()->getName();
+         if ($this->config2->exists($name)) 
+         {
+           $this->config2->remove($name);
+           $this->config2->save();
+           return true;
+         }
+         if ($this->config3->exists($name)) 
+         {
+           $this->config3->remove($name);
+           $this->config3->save();
+         }
+
+      }
 
 
     
