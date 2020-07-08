@@ -1,0 +1,5 @@
+name: teampvp
+main: pvpproject\teampvp\Main
+version: 1.5.0
+api: 3.12.0
+auther: pvpproject
