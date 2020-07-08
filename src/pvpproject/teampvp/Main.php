@@ -50,7 +50,7 @@ class Main extends PluginBase implements Listener
       
 
 
-    }
+    
 
     public function onDisable()
     {
