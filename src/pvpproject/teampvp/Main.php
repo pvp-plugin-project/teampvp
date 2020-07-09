@@ -31,6 +31,7 @@ class Main extends PluginBase implements Listener
   private $config;
   private $config2;
   private $config3;
+  private $config4;
 
     public function onEnable()
     {
@@ -41,6 +42,7 @@ class Main extends PluginBase implements Listener
         $this->config = new Config($this->getDataFolder() . "xyz.yml", Config::YAML);
         $this->config2 = new Config($this->getDataFolder() . "red.yml", Config::YAML);
         $this->config3 = new Config($this->getDataFolder() . "blue.yml", Config::YAML);
+        $this->config4 = new Config($this->getDataFolder() . "member.yml", Config::YAML);
     
 
 
@@ -65,13 +67,16 @@ class Main extends PluginBase implements Listener
           {
             $rand = mt_rand(1,2);
             if ($rand === 1) 
-            {
+            { 
+              if(!$this->config4->exists($name))
               $this->config2->set($name);
               $sender->sendMessage("§l§e[TeamPVP]赤チームになりました!");
+              $this->config4->set($name);
               return true;
             }else{
               $this->config3->set($name);
               $sender->sendMessage("§l§e[TeamPVP]青チームになりました!");
+              $this->config4->set($name);
               return true;
             }
           }
@@ -107,6 +112,7 @@ class Main extends PluginBase implements Listener
       $this->config->save();
       $this->config2->save();
       $this->config3->save();
+      $this->config4->save();
 
 
     }
