@@ -72,11 +72,15 @@ class Main extends PluginBase implements Listener
               $this->config2->set($name);
               $sender->sendMessage("§l§e[TeamPVP]赤チームになりました!");
               $this->config4->set($name);
+              $this->config2->save();
+              $this->config4->save();
               return true;
             }else{
               $this->config3->set($name);
               $sender->sendMessage("§l§e[TeamPVP]青チームになりました!");
               $this->config4->set($name);
+              $this->confg3->save();
+              $this->config4->save();
               return true;
             }
           }
