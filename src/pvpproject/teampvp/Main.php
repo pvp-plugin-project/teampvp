@@ -97,13 +97,17 @@ class Main extends PluginBase implements Listener
          if ($this->config2->exists($name)) 
          {
            $this->config2->remove($name);
+           $this->config4->remove($name);
            $this->config2->save();
+           $this->config4->save();
            return true;
          }
          if ($this->config3->exists($name)) 
          {
            $this->config3->remove($name);
+           $this->config4->remove($name);
            $this->config3->save();
+           $this->config4->save();
          }
 
       }
