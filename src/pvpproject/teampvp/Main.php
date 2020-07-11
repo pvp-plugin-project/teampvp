@@ -43,9 +43,14 @@ class Main extends PluginBase implements Listener
         $this->config2 = new Config($this->getDataFolder() . "red.yml", Config::YAML);
         $this->config3 = new Config($this->getDataFolder() . "blue.yml", Config::YAML);
         $this->config4 = new Config($this->getDataFolder() . "member.yml", Config::YAML);
-    
 
 
+ 
+
+    }
+
+    public function onjoin(PlayerJoinEvent $event)
+    {
 
     }
     
@@ -63,27 +68,33 @@ class Main extends PluginBase implements Listener
         {
 
           case 'teampvp':
-          if (($args[0]) === 'join') 
-          {
-            $rand = mt_rand(1,2);
-            if ($rand === 1) 
-            { 
-              if(!$this->config4->exists($name))
-              $this->config2->set($name);
-              $sender->sendMessage("§l§e[TeamPVP]赤チームになりました!");
-              $this->config4->set($name);
-              $this->config2->save();
-              $this->config4->save();
-              return true;
-            }else{
-              $this->config3->set($name);
-              $sender->sendMessage("§l§e[TeamPVP]青チームになりました!");
-              $this->config4->set($name);
-              $this->config3->save();
-              $this->config4->save();
-              return true;
-            }
+          if (!$this->config4->exists($name))
+		  {
+
+
+          if (($args[0]) === 'join') {
+			  $rand = mt_rand(1, 2);
+			  if ($rand === 1) {
+				  if (!$this->config4->exists($name))
+				  	$this->config2->set($name);
+				  $sender->sendMessage("§l§e[TeamPVP]赤チームになりました!");
+				  $this->config4->set($name);
+				  $this->config2->save();
+				  $this->config4->save();
+				  return true;
+			  } else {
+				  $this->config3->set($name);
+				  $sender->sendMessage("§l§e[TeamPVP]青チームになりました!");
+				  $this->config4->set($name);
+				  $this->config3->save();
+				  $this->config4->save();
+				  return true;
+			  }
+
           }
+          }else{
+          	$sender->sendMessage("§4[エラー]あなたはすでに試合に参加しています。試合から退出したい場合は一度サーバーから退室し、再度お入りください。");
+		  }
           break;   
         }  
           return true;
