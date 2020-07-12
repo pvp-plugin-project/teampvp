@@ -25,6 +25,8 @@ use pocketmine\event\player\PlayerDeathEvent;
 use pocketmine\scheduler\Task;
 use pocketmine\event\player\PlayerChatEvent;
 
+use pvpproject\teampvp\Task\gamestartTask;
+
 class Main extends PluginBase implements Listener
 {
 
@@ -81,6 +83,7 @@ class Main extends PluginBase implements Listener
 				  $this->config4->set($name);
 				  $this->config2->save();
 				  $this->config4->save();
+
 				  return true;
 			  } else {
 				  $this->config3->set($name);
@@ -95,7 +98,7 @@ class Main extends PluginBase implements Listener
           }else{
           	$sender->sendMessage("§4[エラー]あなたはすでに試合に参加しています。試合から退出したい場合は一度サーバーから退室し、再度お入りください。");
 		  }
-          break;   
+          break;
         }  
           return true;
       
