@@ -31,5 +31,4 @@ class gamestartTask extends Task
 	private $player;
 	private $second;
 
-
 }
