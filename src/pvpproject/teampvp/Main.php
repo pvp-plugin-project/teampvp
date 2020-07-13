@@ -2,29 +2,14 @@
 
 namespace pvpproject\teampvp;
 
-use pocketmine\block\Block;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
-use pocketmine\entity\object\ItemEntity;
-use pocketmine\event\block\BlockPlaceEvent;
-use pocketmine\event\block\BlockBreakEvent;
-use pocketmine\event\entity\EntityDamageEvent;
-use pocketmine\event\inventory\InventoryPickupItemEvent;
 use pocketmine\event\Listener;
-use pocketmine\event\player\PlayerChatEvent;
-use pocketmine\event\player\PlayerDeathEvent;
-use pocketmine\event\player\PlayerDropItemEvent;
 use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerQuitEvent;
-use pocketmine\form\Form;
-use pocketmine\item\Item;
-use pocketmine\level\Level;
-use pocketmine\level\Position;
 use pocketmine\math\Vector3;
 use pocketmine\Player;
 use pocketmine\plugin\PluginBase;
-use pocketmine\scheduler\Task;
-use pocketmine\Server;
 use pocketmine\utils\Config;
 
 class Main extends PluginBase implements Listener
