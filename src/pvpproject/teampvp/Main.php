@@ -26,10 +26,7 @@ class Main extends PluginBase implements Listener
 		$this->getLogger()->notice("teampvp plugin is enable.");
 		$this->getLogger()->notice("----------------------");
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
-		/*$this->config = new Config($this->getDataFolder() . "xyz.yml", Config::YAML);
-		$this->config2 = new Config($this->getDataFolder() . "red.yml", Config::YAML);
-		$this->config3 = new Config($this->getDataFolder() . "blue.yml", Config::YAML);
-		$this->config4 = new Config($this->getDataFolder() . "member.yml", Config::YAML);*/
+
 		(new PlayerData($this));
 
 	}
